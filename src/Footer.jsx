@@ -2,21 +2,21 @@ import React from 'react';
 const footerStars = [
     {
         "name": "Meme",
-        "url": "https://github.com/WincerChan/Meme-generator",
+        "url": "https://github.com/dear-zhang",
         "description": "A tool for generate meme.",
         "image": "https://bulma.io/images/footer/bootstrap-to-bulma.png",
         "refer": "View it on GitHub"
     },
     {
         "name": "Hitokoto",
-        "url": "https://github.com/WincerChan/Hitokoto",
+        "url": "https://github.com/dear-zhang",
         "description": "A self-build hitokoto API.",
         "image": "https://bulma.io/images/footer/bootstrap-to-bulma.png",
         "refer": "View it on GitHub"
     },
     {
         "name": "QQMusic Parse",
-        "url": "https://github.com/WincerChan/QQMusic-Parse",
+        "url": "https://github.com/dear-zhang",
         "description": "Pure JavaScript parse for QQ music.",
         "image": "https://bulma.io/images/footer/bootstrap-to-bulma.png",
         "refer": "View it on GitHub"

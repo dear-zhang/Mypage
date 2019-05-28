@@ -21,7 +21,7 @@ class Modal extends Component {
                 <div className="container contact">
                     <h6 className="subtitle is-6">Contact me </h6>
                     <span className="about-me">Telegram&nbsp;
-                            <a rel='noopener noreferrer' target='_blank' href='https://t.me/Tivsae'>@Tivsae</a>
+                            <a rel='noopener noreferrer' target='_blank' href='https://t.me/Kingsonzhang'>@Kingsonzhang</a>
                     </span>
                     <br />
                     <span className="about-me">Twitter&nbsp;
