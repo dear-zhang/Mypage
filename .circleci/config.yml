@@ -38,7 +38,7 @@ jobs:
             mkdir -p ~/.ssh
             touch ~/.ssh/known_hosts
             { ssh-keysacn -p $SSH_PORT $SSH_IP 2> /dev/null; } >> ~/.ssh/known_hosts
-            rsync -az -v --delete -e "ssh -p $SSH_PORT" build/* $SSH_USER@$SSH_IP:/data/www/www/
+            rsync -az -v --delete -e ssh build/* $SSH_USER@$SSH_IP:/data/www/www/
 workflows:
   version: 2
   Home-CI:
