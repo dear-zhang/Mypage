@@ -30,7 +30,8 @@ jobs:
           command: |
             sudo apt-get update && sudo apt-get install rsync
       - restore_cache:
-          keys: home-v1-{{ .Revision }}
+          keys: 
+            - home-v1-{{ .Revision }}
       - run:
           name: Deploy to VPS
           command: |
