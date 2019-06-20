@@ -1,52 +1,55 @@
+    
 defaults: &defaults
-  docker:
-    - image: circleci/node:10.4.0
-
+    docker:
+        - image: circleci/node:10.4.0
+        
 version: 2
 jobs:
-  build:
-    <<: *defaults
-    steps:
-      - checkout
-      - run:
-          name: Install Denpendence
-          command: |
-            yarn install && yarn build
-      - save_cache:
-          key: home-v1-{{ .Revision }}
-          paths:
-            - "build"
-  deploy:
-    <<: *defaults
-    steps:
-      - checkout
-      - run:
-          name: Fix bug
-          command: |
-            sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
-            sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
-      - run:
-          name: Update System
-          command: |
-            sudo apt-get update && sudo apt-get install rsync
-      - restore_cache:
-          keys: 
-            - home-v1-{{ .Revision }}
-      - run:
-          name: Deploy to VPS
-          command: |
-            mkdir -p ~/.ssh
-            touch ~/.ssh/known_hosts
-            { ssh-keysacn -p $SSH_PORT $SSH_IP 2> /dev/null; } >> ~/.ssh/known_hosts
-            rsync -az -v --delete -e ssh build/* $SSH_USER@$SSH_IP:/data/www/www/
+    build:
+        <<: *defaults
+        steps:
+            - checkout
+            - run:
+                name: Install Denpendence
+                command: |
+                    yarn install && yarn build
+            - save_cache:
+                key: blog-v1-{{ .Revision }}
+                paths:
+                    - "build"
+
+    deploy:
+        <<: *defaults
+        steps:
+            - checkout
+            - run:
+                name: Remove jessie bug
+                command: |
+                    sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
+                    sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
+            - run:
+                name: Update System
+                command: |
+                    sudo apt-get update && sudo apt-get install rsync
+            - restore_cache:
+                keys:
+                    - blog-v1-{{ .Revision }}
+            - run:
+                name: Deploy to VPS
+                command: |
+                    mkdir -p ~/.ssh
+                    touch ~/.ssh/known_hosts
+                    { ssh-keyscan -p $SSH_PORT $SSH_IP 2> /dev/null; } >> ~/.ssh/known_hosts
+                    rsync -az -v --delete -e "ssh -p $SSH_PORT" build/* $SSH_USER@$SSH_IP:/data/www/www/
 workflows:
-  version: 2
-  Home-CI:
-    jobs:
-      - build
-      - deploy:
-          requires:
+    version: 2
+
+    MyBlog-CI:
+        jobs:
             - build
-          filters:
-            branches:
-              only: master
+            - deploy:
+                requires:
+                    - build
+                filters:
+                    branches:
+                        only: master
