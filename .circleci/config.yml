@@ -14,7 +14,7 @@ jobs:
                 command: |
                     yarn install && yarn build
             - save_cache:
-                key: blog-v1-{{ .Revision }}
+                key: Home-v1-{{ .Revision }}
                 paths:
                     - "build"
 
@@ -33,7 +33,7 @@ jobs:
                     sudo apt-get update && sudo apt-get install rsync
             - restore_cache:
                 keys:
-                    - blog-v1-{{ .Revision }}
+                    - Home-v1-{{ .Revision }}
             - run:
                 name: Deploy to VPS
                 command: |
@@ -43,8 +43,7 @@ jobs:
                     rsync -az -v --delete -e "ssh -p $SSH_PORT" build/* $SSH_USER@$SSH_IP:/data/www/www/
 workflows:
     version: 2
-
-    MyBlog-CI:
+    Home-CI:
         jobs:
             - build
             - deploy:
