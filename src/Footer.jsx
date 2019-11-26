@@ -1,25 +1,25 @@
 import React from 'react';
 const footerStars = [
     {
-        "name": "Meme",
-        "url": "https://github.com/dear-zhang",
+        "name": "Resume",
+        "url": "https://resume.jasonzhang.xyz",
         "description": "A tool for generate meme.",
         "image": "https://bulma.io/images/footer/bootstrap-to-bulma.png",
-        "refer": "View it on GitHub"
+        "refer": "点击查看"
     },
     {
-        "name": "Hitokoto",
-        "url": "https://github.com/dear-zhang",
-        "description": "A self-build hitokoto API.",
+        "name": "Blog",
+        "url": "https://blog.jasonzhang.xyz",
+        "description": "个人博客",
         "image": "https://bulma.io/images/footer/bootstrap-to-bulma.png",
-        "refer": "View it on GitHub"
+        "refer": "点击查看"
     },
     {
-        "name": "QQMusic Parse",
-        "url": "https://github.com/dear-zhang",
-        "description": "Pure JavaScript parse for QQ music.",
+        "name": "Wiki",
+        "url": "https://wiki.jasonzhang.xyz",
+        "description": "个人Wiki网站",
         "image": "https://bulma.io/images/footer/bootstrap-to-bulma.png",
-        "refer": "View it on GitHub"
+        "refer": "点击查看"
     }
 ]
 
@@ -53,7 +53,7 @@ const Footer = () => (
         </div>
         <footer className="footer">
             <div className="content has-text-centered">
-                ©2017 - 2019 <span id="heart">♥</span> Made by <a href="https://me.jasonzhang.xyz">Jason</a>.
+                ©2018 - 2019 <span id="heart">♥</span> Made by <a href="https://me.jasonzhang.xyz">Jason</a>.
             </div>
         </footer>
     </section>
