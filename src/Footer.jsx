@@ -3,7 +3,7 @@ const footerStars = [
     {
         "name": "Resume",
         "url": "https://resume.jasonzhang.xyz",
-        "description": "A tool for generate meme.",
+        "description": "个人简历",
         "image": "https://bulma.io/images/footer/bootstrap-to-bulma.png",
         "refer": "点击查看"
     },
